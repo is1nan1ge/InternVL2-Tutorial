@@ -10,7 +10,7 @@ from demo import ConversationalAgent, CustomTheme
 
 FOOD_EXAMPLES = "demo/food_for_demo.json"
 MODEL_PATH = "/root/share/new_models/OpenGVLab/InternVL2-2B"
-# MODEL_PATH = "/root/xtuner/work_dirs/internvl_v2_internlm2_2b_lora_finetune_food/convert_model"
+# MODEL_PATH = "/root/xtuner/work_dirs/internvl_v2_internlm2_2b_lora_finetune_food/lr35_ep10"
 OUTPUT_PATH = "./outputs"
 
 def setup_seeds():
@@ -72,6 +72,17 @@ def main():
                 chat_state = gr.State()
                 chatbot = gr.Chatbot(label='InternVL2', height=800, avatar_images=((os.path.join(os.path.dirname(__file__), 'demo/user.png')), (os.path.join(os.path.dirname(__file__), "demo/bot.png"))))
                 text_input = gr.Textbox(label='User', placeholder="Please click the <Start Chat> button to start chat!", interactive=False)
+                gr.Markdown("### 输入示例")
+                def on_text_change(text):
+                    return gr.update(interactive=True)
+                text_input.change(fn=on_text_change, inputs=text_input, outputs=text_input)
+                gr.Examples(
+                    examples=[["图片中的食物通常属于哪个菜系?"],
+                              ["如果让你简单形容一下品尝图片中的食物的滋味，你会描述它"],
+                              ["去哪个地方游玩时应该品尝当地的特色美食图片中的食物?"],
+                              ["食用图片中的食物时，一般它上菜或摆盘时的特点是?"]],
+                    inputs=[text_input]
+                )
         
         with gr.Row():
             gr.Markdown("### 食物快捷栏")
