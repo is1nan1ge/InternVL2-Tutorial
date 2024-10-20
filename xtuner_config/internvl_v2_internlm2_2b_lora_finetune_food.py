@@ -21,9 +21,9 @@ from xtuner.utils import PROMPT_TEMPLATE
 path = '/root/share/new_models/OpenGVLab/InternVL2-2B'
 
 # Data
-data_root = '/root/huggingface/FoodieQA/FoodieQA/'  # your data path
+data_root = '/root/share/datasets/FoodieQA/'  # your data path
 data_path = data_root + 'sivqa_llava.json'
-image_folder = '/root/huggingface/FoodieQA/FoodieQA/'  # your image folder path
+image_folder = '/root/share/datasets/FoodieQA/'  # your image folder path
 prompt_template = PROMPT_TEMPLATE.internlm2_chat
 max_length = 8192
 
