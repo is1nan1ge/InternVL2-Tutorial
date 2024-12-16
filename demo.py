@@ -37,8 +37,8 @@ def main():
     theme = CustomTheme()
     
     titles = [
-        """<center><B><font face="Comic Sans MS" size=10>书生大模型实战营</font></B></center>"""  ## Kalam:wght@700
-        """<center><B><font face="Courier" size=5>「进阶岛」InternVL 多模态模型部署微调实践</font></B></center>"""
+        """<center><B><font face="Comic Sans MS" size=10>趣味美食小助手</font></B></center>"""  ## Kalam:wght@700
+        """<center><B><font face="Courier" size=5>InternVL 多模态模型部署微调实践</font></B></center>"""
     ]
     
     language = """Language: 中文 and English"""
@@ -77,8 +77,8 @@ def main():
                     return gr.update(interactive=True)
                 text_input.change(fn=on_text_change, inputs=text_input, outputs=text_input)
                 gr.Examples(
-                    examples=[["图片中的食物通常属于哪个菜系?"],
-                              ["如果让你简单形容一下品尝图片中的食物的滋味，你会描述它"],
+                    examples=[["图片中的食物属于哪个菜系?"],
+                              ["如果让你用简单的语言形容一下品尝图片中的食物的味道，你会怎么说?"],
                               ["去哪个地方游玩时应该品尝当地的特色美食图片中的食物?"],
                               ["食用图片中的食物时，一般它上菜或摆盘时的特点是?"]],
                     inputs=[text_input]
